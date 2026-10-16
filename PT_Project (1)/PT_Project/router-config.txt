@@ -1,0 +1,23 @@
+! Router0 (Cisco 1941) configuration
+enable
+configure terminal
+hostname Router0
+
+! LAN side: connected to Switch0 Fa0/3
+interface GigabitEthernet0/0
+ ip address 192.168.1.1 255.255.255.0
+ no shutdown
+ exit
+
+! Server side: connected to Server0 Fa0
+interface GigabitEthernet0/1
+ ip address 8.8.8.1 255.0.0.0
+ no shutdown
+ exit
+
+end
+write memory
+
+! Verification commands
+! show ip interface brief
+! show running-config
